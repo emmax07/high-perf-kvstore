@@ -1,0 +1,15 @@
+# Ignore build directories
+build/
+bin/
+out/
+
+# Ignore Visual Studio temporary files
+.vs/
+*.user
+*.suo
+
+# Ignore database data files created at runtime
+kv_data/
+kv_sys_data/
+*.bin
+*.log
