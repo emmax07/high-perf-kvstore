@@ -11,7 +11,10 @@ endif()
 include_directories(include)
 
 # Core Library
-add_library(kvstore_lib src/wal.cpp)
+add_library(kvstore_lib 
+    src/wal.cpp
+    src/engine.cpp
+)
 
 # Executable App
 add_executable(kvstore_app src/main.cpp)
