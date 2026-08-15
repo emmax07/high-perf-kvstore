@@ -10,15 +10,19 @@ endif()
 
 include_directories(include)
 
-# Core Library
+# Shared Core Engine Library
 add_library(kvstore_lib 
     src/wal.cpp
     src/engine.cpp
 )
 
-# Executable App
-add_executable(kvstore_app src/main.cpp)
-
 find_package(Threads REQUIRED)
 target_link_libraries(kvstore_lib PRIVATE Threads::Threads)
+
+# Main Demo Executable App
+add_executable(kvstore_app src/main.cpp)
 target_link_libraries(kvstore_app PRIVATE kvstore_lib)
+
+# Unit & Integration Test Suite Executable
+add_executable(kvstore_tests tests/test_kvstore.cpp)
+target_link_libraries(kvstore_tests PRIVATE kvstore_lib)
